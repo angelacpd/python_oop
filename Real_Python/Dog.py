@@ -5,9 +5,10 @@ class Dog:
     # dunder methods: begin and end with double underscores.
 
     # Instance attributes
-    def __init__(self, name='Rex', age='1'):
+    def __init__(self, name=None, age=None, breed=None):
         self.name = name
         self.age = age
+        self.breed = breed
 
     # Instance methods
     # def description(self):
@@ -43,4 +44,10 @@ print(f"Dog a: name = {a.name}, age = {a.age}")
 print(a.speak("Woof Woof"))
 print(a)
 
+# breed
+miles = Dog("Miles", 4, "Jack Russel Terrier")
+buddy = Dog("Buddy", 9, "Dachshund")
+jim = Dog("Jim", 5, "Bulldog")
+
+print(buddy.speak("Yap"))
 
