@@ -39,20 +39,28 @@ while key != ESC:
     x = snake[0][1]
     if key == curses.KEY_DOWN:
         y += 1
+        if y == 19:
+            y = 1
     if key == curses.KEY_UP:
         y -= 1
+        if y == 0:
+            y = 18
     if key == curses.KEY_LEFT:
         x -= 1
+        if x == 0:
+            x = 58
     if key == curses.KEY_RIGHT:
         x += 1
+        if x == 59:
+            x = 1
 
-    snake.insert(0, (y, x))  # append 0(1) , insert O(n)
+    snake.insert(0, (y, x))  # append O(1) , insert O(n)
 
     # check if we hit the border
-    if y == 0: break
-    if y == 19: break
-    if x == 0: break
-    if x == 59: break
+    # if y == 0: break
+    # if y == 19: break
+    # if x == 0: break
+    # if x == 59: break
 
     # if snake runs over itself
     if snake[0] in snake[1:]: break
