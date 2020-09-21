@@ -63,24 +63,29 @@ while key != ESC:
     # if x == 59: break
 
     # if snake runs over itself
-    if snake[0] in snake[1:]: break
-
-    # if snake hits the food
-    if snake[0] == food:
-        # eat the food
-        score += 1
-        food = ()
-        while food == ():
-            food = (randint(1, 18), randint(1, 58))
-            if food in snake:
-                food = ()
-        win.addch(food[0], food[1], '#')
+    if snake[0] in snake[2:]:
+        break
+    elif snake[0] == snake[1]:
+        key = prev_key
+        del snake[0]
+        continue
     else:
-        # move snake
-        last = snake.pop()
-        win.addch(last[0], last[1], ' ')
+        # if snake hits the food
+        if snake[0] == food:
+            # eat the food
+            score += 1
+            food = ()
+            while food == ():
+                food = (randint(1, 18), randint(1, 58))
+                if food in snake:
+                    food = ()
+            win.addch(food[0], food[1], '#')
+        else:
+            # move snake
+            last = snake.pop()
+            win.addch(last[0], last[1], ' ')
 
-    win.addch(snake[0][0], snake[0][1], '*')
+        win.addch(snake[0][0], snake[0][1], '*')
 
 
 curses.endwin()
