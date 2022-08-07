@@ -13,7 +13,7 @@ while jogar_novamente == "S":
         if not isinstance(chute, int):
             print("Entrada inválida! Não é um número inteiro.")
             continue
-        if chute == 999:
+        elif chute == 999:
             jogar_novamente = "N"
             break
         elif chute not in range(1, 101):
